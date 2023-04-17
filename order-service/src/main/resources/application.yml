@@ -1,0 +1,77 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://124.223.103.8:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: yangjin15@#*A
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.223.103.8:8848
+        username: nacos
+        password: yangjin5@#*A
+        namespace: a760a85f-2996-41ca-bb85-1e91abe0e053
+        group: SEATA_GROUP
+
+seata:
+  enabled: true
+  application: ${spring.application.name}
+  tx-service-group: ${spring.application.name}-tx-group
+  enable-auto-data-source-proxy: true
+  config:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      username: ${spring.cloud.nacos.discovery.username}
+      password: ${spring.cloud.nacos.discovery.password}
+      namespace: ${spring.cloud.nacos.discovery.namespace}
+      group: ${spring.cloud.nacos.discovery.group}
+      data-id: server.properties
+  registry:
+    type: nacos
+    nacos:
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      username: ${spring.cloud.nacos.discovery.username}
+      password: ${spring.cloud.nacos.discovery.password}
+      namespace: ${spring.cloud.nacos.discovery.namespace}
+      group: ${spring.cloud.nacos.discovery.group}
+      application: seata-server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      insert-strategy: not_null
+      update-strategy: not_null
+      id-type: auto
+logging:
+  level:
+    org.springframework.cloud.alibaba.seata.web: debug
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
