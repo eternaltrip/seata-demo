@@ -4,7 +4,7 @@ spring:
   application:
     name: account-service
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://124.223.103.8:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: yangjin15@#*A
@@ -37,7 +37,8 @@ seata:
   enable-auto-data-source-proxy: true
   application-id: ${spring.application.name}
   tx-service-group: ${spring.application.name}-tx-group
-
+  data-source-proxy-mode: AT
+#  data-source-proxy-mode: XA
   config:
     type: nacos
     nacos:

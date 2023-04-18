@@ -27,7 +27,6 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <mybatis.plus.version>3.3.0</mybatis.plus.version>
-        <mysql.version>5.1.47</mysql.version>
         <alibaba.version>2.2.5.RELEASE</alibaba.version>
         <seata.version>1.4.2</seata.version>
     </properties>
@@ -52,11 +51,7 @@
 
 
             <!-- mysql驱动 -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

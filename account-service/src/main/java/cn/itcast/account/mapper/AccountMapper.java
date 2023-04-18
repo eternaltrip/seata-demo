@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Update;
 /**
  * @author 虎哥
  */
+
+
 public interface AccountMapper extends BaseMapper<Account> {
 
     @Update("update account_tbl set money = money - ${money} where user_id = #{userId}")

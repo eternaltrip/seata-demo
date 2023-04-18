@@ -1,6 +1,7 @@
 package cn.itcast.storage.web;
 
 import cn.itcast.storage.service.StorageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,11 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("storage")
 public class StorageController {
 
-    private final StorageService storageService;
 
-    public StorageController(StorageService storageService) {
-        this.storageService = storageService;
-    }
+    @Autowired
+    private  StorageService storageService;
 
     /**
      * 扣减库存
