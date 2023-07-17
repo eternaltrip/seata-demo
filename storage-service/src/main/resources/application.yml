@@ -5,13 +5,13 @@ spring:
     name: storage-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.223.103.8:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.188.130:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: yangjin15@#*A
   cloud:
     nacos:
       discovery:
-        server-addr: 124.223.103.8:8848
+        server-addr: 192.168.188.130:8848
         username: nacos
         password: yangjin5@#*A
         namespace: a760a85f-2996-41ca-bb85-1e91abe0e053
@@ -27,8 +27,6 @@ seata:
   #数据源代理模式使用AT模式(可以不用配置，seata默认使用AT模式)
 #  data-source-proxy-mode: XA #这里是开启xa模式，所有涉及到的模块都要设置同样的xa。该模式是采用数据库的事务模式实现，在一个事务周期中，所有的数据修改都需要提交之后才能生效。如果中途有异常就会全部回滚！因为锁定的资源多，可能会造成资源锁定而导致其他请求暂时获取不到资源的情况。
   data-source-proxy-mode: AT #该模式是采用记录数据提交前后快照的方式来实现，数据库实际上执行后就直接提交，但是undolog中记录了前后的数据快照，那么在整体事务结束后，通过判断整体事务是否全部成功 来确定是否需要通过undolog中的数据快照对数据进行恢复。
-#  data-source-proxy-mode: TCC #
-#  data-source-proxy-mode: AT
   config:
     type: nacos
     nacos:

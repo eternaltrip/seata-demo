@@ -5,13 +5,13 @@ spring:
     name: order-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://124.223.103.8:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.188.130:3306/seata_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: yangjin15@#*A
   cloud:
     nacos:
       discovery:
-        server-addr: 124.223.103.8:8848
+        server-addr: 192.168.188.130:8848
         username: nacos
         password: yangjin5@#*A
         namespace: a760a85f-2996-41ca-bb85-1e91abe0e053
